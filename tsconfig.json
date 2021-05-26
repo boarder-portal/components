@@ -1,0 +1,28 @@
+{
+  "compilerOptions": {
+    "module": "esnext",
+    "target": "es5",
+    "strict": true,
+    "outDir": "./dist",
+    "jsx": "react",
+    "sourceMap": true,
+    "declaration": true,
+    "esModuleInterop": true,
+    "skipLibCheck": true,
+    "baseUrl": ".",
+    "paths": {
+      "server/*": ["./app/server/*"],
+      "client/*": ["./app/client/*"],
+      "common/*": ["./app/common/*"]
+    }
+  },
+  "include": [
+    "./app/**/*"
+  ],
+  "exclude": [
+    "**/node_modules/*",
+    "**/build/*",
+    "**/.cache/*",
+    "**/dist/*"
+  ]
+}
