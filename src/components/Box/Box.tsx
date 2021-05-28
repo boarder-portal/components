@@ -40,12 +40,10 @@ const Root = styled.div`
   ` : ''}
 `;
 
-const Box: React.FC<IBoxProps> = (props) => {
+export const Box: React.FC<IBoxProps> = (props) => {
   const { className, children, ...restProps } = props;
 
   return (
     <Root className={className} {...restProps}>{children}</Root>
   );
 };
-
-export default React.memo(Box);
