@@ -18,11 +18,10 @@
     "emitDeclarationOnly": true,
   },
   "include": [
-    "./gallery/**/*"
+    "./src/**/*"
   ],
   "exclude": [
     "**/node_modules/*",
-    "**/dist/*",
-    "**/build/*",
+    "**/dist/*"
   ]
 }

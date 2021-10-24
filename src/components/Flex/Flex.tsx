@@ -39,7 +39,3 @@ export const Flex: FunctionalComponent<IFlexProps> = memo((props) => {
     </div>
   );
 });
-
-(() => {
-  const temp = h;
-})()
