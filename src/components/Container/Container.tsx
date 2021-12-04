@@ -1,6 +1,6 @@
 import './Container.scss';
 import block from 'bem-cn';
-import { FC, memo } from 'react';
+import { forwardRef, memo } from 'react';
 
 const b = block('Container');
 
@@ -8,10 +8,10 @@ interface IContainerProps {
   className?: string;
 }
 
-export const Container: FC<IContainerProps> = memo((props) => {
+export const Container = memo(forwardRef<HTMLDivElement | null, IContainerProps>((props, ref) => {
   const { className, children } = props;
 
-  return <div className={b.mix(className)}>{children}</div>;
-});
+  return <div className={b.mix(className)} ref={ref}>{children}</div>;
+}));
 
 Container.displayName = 'Container';

@@ -1,6 +1,6 @@
 import './Flex.scss';
 import block from 'bem-cn';
-import { FC, memo, MouseEventHandler } from 'react';
+import { forwardRef, memo, MouseEventHandler } from 'react';
 
 interface IFlexProps {
   className?: string;
@@ -14,7 +14,7 @@ interface IFlexProps {
 
 const b = block('Flex');
 
-export const Flex: FC<IFlexProps> = memo((props) => {
+export const Flex = memo(forwardRef<HTMLDivElement | null, IFlexProps>((props, ref) => {
   const {
     className,
     children,
@@ -31,12 +31,13 @@ export const Flex: FC<IFlexProps> = memo((props) => {
       className={b({ direction, justifyContent, alignItems, between }).mix(
         className,
       )}
+      ref={ref}
       onClick={onClick}
       onContextMenu={onContextMenu}
     >
       {children}
     </div>
   );
-});
+}));
 
 Flex.displayName = 'Flex';

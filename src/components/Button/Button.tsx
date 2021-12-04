@@ -1,6 +1,6 @@
 import './Button.scss';
 import block from 'bem-cn';
-import { FC, memo } from 'react';
+import { forwardRef, memo } from 'react';
 
 interface IButtonProps {
   className?: string;
@@ -11,18 +11,19 @@ interface IButtonProps {
 
 const b = block('Button');
 
-export const Button: FC<IButtonProps> = memo((props) => {
+export const Button = memo(forwardRef<HTMLButtonElement | null, IButtonProps>((props, ref) => {
   const { className, disabled, children, type = 'success', onClick } = props;
 
   return (
     <button
       className={b({ type, disabled }).mix(className)}
+      ref={ref}
       disabled={disabled}
       onClick={onClick}
     >
       {children}
     </button>
   );
-});
+}));
 
 Button.displayName = 'Button';

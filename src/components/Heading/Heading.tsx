@@ -1,6 +1,6 @@
 import './Heading.scss';
 import block from 'bem-cn';
-import { FC, memo } from 'react';
+import { forwardRef, memo } from 'react';
 
 interface IHeadingProps {
   className?: string;
@@ -9,10 +9,10 @@ interface IHeadingProps {
 
 const b = block('Heading');
 
-export const Heading: FC<IHeadingProps> = memo((props) => {
+export const Heading = memo(forwardRef<HTMLDivElement | null, IHeadingProps>((props, ref) => {
   const { className, level, children } = props;
 
-  return <div className={b({ level }).mix(className)}>{children}</div>;
-});
+  return <div className={b({ level }).mix(className)} ref={ref}>{children}</div>;
+}));
 
 Heading.displayName = 'Heading';
