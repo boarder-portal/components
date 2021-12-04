@@ -41,13 +41,13 @@
       }
     ],
     "@typescript-eslint/indent": 0,
-    "@typescript-eslint/interface-name-prefix": ["error", "always"],
     "@typescript-eslint/no-explicit-any": 0,
     "@typescript-eslint/explicit-function-return-type": 0,
     "@typescript-eslint/no-var-requires": 0,
-    "@typescript-eslint/ban-ts-ignore": 1,
     "react-hooks/rules-of-hooks": "error",
     "react-hooks/exhaustive-deps": "error",
+    "react/jsx-uses-react": "off",
+    "react/react-in-jsx-scope": "off",
     "array-bracket-spacing": [
       "error",
       "never"
@@ -206,7 +206,7 @@
     "no-unmodified-loop-condition": 2,
     "no-unneeded-ternary": 2,
     "no-unused-expressions": 0,
-    "no-unused-vars": 2,
+    "no-unused-vars": 0,
     "no-use-before-define": 0,
     "no-useless-call": 2,
     "no-useless-concat": 2,
@@ -382,6 +382,5 @@
     "react/no-did-update-set-state": 0,
     "react/no-string-refs": 2,
     "react/prop-types": 0,
-    "react/react-in-jsx-scope": 0
   }
 }

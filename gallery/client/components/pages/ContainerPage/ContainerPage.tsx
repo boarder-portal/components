@@ -1,9 +1,8 @@
-import { FunctionalComponent } from 'preact';
-import { memo } from 'preact/compat';
+import { FC, memo } from 'react';
 
 import { Container, Heading } from '../../../../../src/components';
 
-const ContainerPage: FunctionalComponent = () => {
+const ContainerPage: FC = () => {
   return (
     <Container>
       <Heading level={1}>Container</Heading>

@@ -1,12 +1,11 @@
-import { FunctionalComponent } from 'preact';
-import { memo } from 'preact/compat';
 import block from 'bem-cn';
+import { FC, memo } from 'react';
 
 import { Container, Flex, Heading } from '../../../../../src/components';
 
 const b = block('FlexPage');
 
-const FlexPage: FunctionalComponent = () => {
+const FlexPage: FC = () => {
   return (
     <Container>
       <Flex className={b()} direction="column" between={2}>

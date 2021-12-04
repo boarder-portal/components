@@ -1,7 +1,6 @@
 import './Heading.scss';
-import { FunctionalComponent } from 'preact';
-import { memo } from 'preact/compat';
 import block from 'bem-cn';
+import { FC, memo } from 'react';
 
 interface IHeadingProps {
   className?: string;
@@ -10,9 +9,10 @@ interface IHeadingProps {
 
 const b = block('Heading');
 
-export const Heading: FunctionalComponent<IHeadingProps> = memo((props) => {
+export const Heading: FC<IHeadingProps> = memo((props) => {
   const { className, level, children } = props;
 
   return <div className={b({ level }).mix(className)}>{children}</div>;
 });
 
+Heading.displayName = 'Heading';

@@ -1,7 +1,6 @@
 import './Flex.scss';
-import { h, FunctionalComponent, JSX } from 'preact';
-import { memo } from 'preact/compat';
 import block from 'bem-cn';
+import { FC, memo, MouseEventHandler } from 'react';
 
 interface IFlexProps {
   className?: string;
@@ -9,13 +8,13 @@ interface IFlexProps {
   justifyContent?: 'center' | 'flexStart' | 'flexEnd' | 'spaceBetween';
   alignItems?: 'center' | 'flexStart' | 'flexEnd' | 'stretch';
   between?: 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10;
-  onClick?: JSX.MouseEventHandler<HTMLDivElement>;
-  onContextMenu?: JSX.MouseEventHandler<HTMLDivElement>;
+  onClick?: MouseEventHandler<HTMLDivElement>;
+  onContextMenu?: MouseEventHandler<HTMLDivElement>;
 }
 
 const b = block('Flex');
 
-export const Flex: FunctionalComponent<IFlexProps> = memo((props) => {
+export const Flex: FC<IFlexProps> = memo((props) => {
   const {
     className,
     children,
@@ -39,3 +38,5 @@ export const Flex: FunctionalComponent<IFlexProps> = memo((props) => {
     </div>
   );
 });
+
+Flex.displayName = 'Flex';

@@ -1,19 +1,19 @@
 import 'regenerator-runtime/runtime';
 import './App.scss';
-import { FunctionalComponent } from 'preact';
 import block from 'bem-cn';
-import { Switch, Route, Link } from 'react-router-dom';
+import { Routes, Route, Link } from 'react-router-dom';
+import { FC } from 'react';
 
+import { Container, Flex } from '../../../../src/components';
 import ButtonPage from '../pages/ButtonPage/ButtonPage';
 import ContainerPage from '../pages/ContainerPage/ContainerPage';
-import { Container, Flex } from '../../../../src/components';
 import FlexPage from '../pages/FlexPage/FlexPage';
 import HeadingPage from '../pages/HeadingPage/HeadingPage';
 import InputPage from '../pages/InputPage/InputPage';
 
 const b = block('App');
 
-const App: FunctionalComponent = () => {
+const App: FC = () => {
   return (
     <div className={b()}>
       <Container>
@@ -26,27 +26,13 @@ const App: FunctionalComponent = () => {
         </Flex>
       </Container>
 
-      <Switch>
-        <Route exact path="/button">
-          <ButtonPage />
-        </Route>
-
-        <Route exact path="/container">
-          <ContainerPage />
-        </Route>
-
-        <Route exact path="/flex">
-          <FlexPage />
-        </Route>
-
-        <Route exact path="/heading">
-          <HeadingPage />
-        </Route>
-
-        <Route exact path="/input">
-          <InputPage />
-        </Route>
-      </Switch>
+      <Routes>
+        <Route path="/button" element={<ButtonPage />} />
+        <Route path="/container" element={<ContainerPage />} />
+        <Route path="/flex" element={<FlexPage />} />
+        <Route path="/heading" element={<HeadingPage />} />
+        <Route path="/input" element={<InputPage />} />
+      </Routes>
     </div>
   );
 };

@@ -1,7 +1,6 @@
 import './Button.scss';
-import { FunctionalComponent } from 'preact';
-import { memo } from 'preact/compat';
 import block from 'bem-cn';
+import { FC, memo } from 'react';
 
 interface IButtonProps {
   className?: string;
@@ -12,7 +11,7 @@ interface IButtonProps {
 
 const b = block('Button');
 
-export const Button: FunctionalComponent<IButtonProps> = memo((props) => {
+export const Button: FC<IButtonProps> = memo((props) => {
   const { className, disabled, children, type = 'success', onClick } = props;
 
   return (
@@ -25,3 +24,5 @@ export const Button: FunctionalComponent<IButtonProps> = memo((props) => {
     </button>
   );
 });
+
+Button.displayName = 'Button';

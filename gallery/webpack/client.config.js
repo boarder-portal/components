@@ -25,7 +25,6 @@ module.exports = {
     path: path.resolve(__dirname, '../build/client'),
   },
   plugins: [
-    ...commonConfig.plugins,
     new MiniCssExtractPlugin({
       filename: `[${
         process.env.NODE_ENV === 'production' ? 'contenthash' : 'name'

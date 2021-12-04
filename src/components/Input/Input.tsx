@@ -1,8 +1,6 @@
 import './Input.scss';
-import { FunctionalComponent, JSX } from 'preact';
-import { memo } from 'preact/compat';
 import block from 'bem-cn';
-import { useCallback } from 'preact/hooks';
+import { forwardRef, memo, useCallback } from 'react';
 
 interface IInputProps {
   className?: string;
@@ -12,11 +10,11 @@ interface IInputProps {
 
 const b = block('Input');
 
-export const Input: FunctionalComponent<IInputProps> = memo((props) => {
+export const Input = memo(forwardRef<HTMLInputElement | null, IInputProps>((props, ref) => {
   const { className, value, onInput } = props;
 
   const handleEvent = useCallback(
-    (e: JSX.TargetedEvent<HTMLInputElement>) => {
+    (e) => {
       onInput?.(e.currentTarget.value);
     },
     [onInput],
@@ -24,10 +22,10 @@ export const Input: FunctionalComponent<IInputProps> = memo((props) => {
 
   return <input
     className={b.mix(className)}
+    ref={ref}
     value={value}
-
-    // @ts-ignore
     onInput={handleEvent}
   />;
-});
+}));
 
+Input.displayName = 'Input';
