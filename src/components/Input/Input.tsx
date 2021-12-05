@@ -1,6 +1,7 @@
-import './Input.scss';
-import block from 'bem-cn';
-import { forwardRef, memo, useCallback } from 'react';
+import { FC, forwardRef, memo, useCallback } from 'react';
+import classNames from 'classnames';
+
+import cx from './Input.pcss';
 
 interface IInputProps {
   className?: string;
@@ -8,9 +9,7 @@ interface IInputProps {
   onInput?(value: string): void;
 }
 
-const b = block('Input');
-
-export const Input = memo(forwardRef<HTMLInputElement | null, IInputProps>((props, ref) => {
+export const Input: FC<IInputProps> = memo(forwardRef<HTMLInputElement | null, IInputProps>((props, ref) => {
   const { className, value, onInput } = props;
 
   const handleEvent = useCallback(
@@ -21,7 +20,7 @@ export const Input = memo(forwardRef<HTMLInputElement | null, IInputProps>((prop
   );
 
   return <input
-    className={b.mix(className)}
+    className={classNames(cx.root, className)}
     ref={ref}
     value={value}
     onInput={handleEvent}

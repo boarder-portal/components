@@ -9,8 +9,8 @@ module.exports = {
     rules: [
       ...commonConfig.module.rules,
       {
-        test: /\.(scss|css)$/,
-        use: [MiniCssExtractPlugin.loader, 'css-loader', 'sass-loader'],
+        test: /\.css$/,
+        use: [MiniCssExtractPlugin.loader, 'css-loader'],
       },
     ],
   },
@@ -24,11 +24,4 @@ module.exports = {
     }].js`,
     path: path.resolve(__dirname, '../build/client'),
   },
-  plugins: [
-    new MiniCssExtractPlugin({
-      filename: `[${
-        process.env.NODE_ENV === 'production' ? 'contenthash' : 'name'
-      }].css`,
-    }),
-  ].filter(Boolean),
 };

@@ -1,6 +1,7 @@
 import 'regenerator-runtime/runtime';
-import './App.scss';
-import block from 'bem-cn';
+import '../../styles/reset.css';
+import './App.pcss';
+
 import { Routes, Route, Link } from 'react-router-dom';
 import { FC } from 'react';
 
@@ -11,11 +12,9 @@ import FlexPage from '../pages/FlexPage/FlexPage';
 import HeadingPage from '../pages/HeadingPage/HeadingPage';
 import InputPage from '../pages/InputPage/InputPage';
 
-const b = block('App');
-
 const App: FC = () => {
   return (
-    <div className={b()}>
+    <div>
       <Container>
         <Flex between={2}>
           <Link to="./button">Button</Link>

@@ -6,10 +6,12 @@
   "module": "dist/index.es.js",
   "scripts": {
     "build": "rm -rf ./dist && rollup -c && tsc --project ./components.tsconfig.json",
-    "gallery:start": "npm-run-all --parallel gallery:client:build:watch gallery:server:build:watch gallery:server:start:watch",
+    "gallery:start": "npm-run-all --parallel gallery:client:build:watch gallery:server:build:watch gallery:server:start:watch css:watch:gallery css:watch:src",
     "gallery:client:build:watch": "webpack -w -c ./gallery/webpack/client.config.js",
     "gallery:server:build:watch": "webpack -w -c ./gallery/webpack/server.config.js",
-    "gallery:server:start:watch": "supervisor ./gallery/build/server/main.js"
+    "gallery:server:start:watch": "supervisor ./gallery/build/server/main.js",
+    "css:watch:gallery": "tcm -p gallery/**/*.pcss --watch",
+    "css:watch:src": "tcm -p src/**/*.pcss --watch"
   },
   "repository": {
     "type": "git",
@@ -23,10 +25,10 @@
   "homepage": "https://github.com/boarder-portal/components#readme",
   "peerDependencies": {
     "react": "^17.0.2",
-    "bem-cn": "^3.0.1"
+    "classnames": "^2.3.1"
   },
   "dependencies": {
-    "bem-cn": "^3.0.1",
+    "classnames": "^2.3.1",
     "express": "^4.17.1",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
@@ -51,6 +53,7 @@
     "@types/react-router-dom": "^5.3.2",
     "@typescript-eslint/eslint-plugin": "^5.5.0",
     "@typescript-eslint/parser": "^5.5.0",
+    "autoprefixer": "^10.4.0",
     "babel-loader": "^8.2.3",
     "css-loader": "^6.4.0",
     "eslint": "^8.4.0",
@@ -59,6 +62,8 @@
     "eslint-plugin-react-hooks": "^4.3.0",
     "mini-css-extract-plugin": "^2.4.3",
     "npm-run-all": "^4.1.5",
+    "postcss-loader": "^6.2.1",
+    "postcss-nested": "^5.0.6",
     "rollup": "^2.50.2",
     "rollup-plugin-peer-deps-external": "^2.2.4",
     "rollup-plugin-scss": "^2.6.1",
@@ -68,6 +73,7 @@
     "supervisor": "^0.12.0",
     "ts-loader": "^9.2.2",
     "tsconfig-paths": "^3.9.0",
+    "typed-css-modules": "^0.7.0",
     "webpack": "^5.64.4",
     "webpack-cli": "^4.9.1"
   }

@@ -7,10 +7,6 @@ module.exports = {
   module: {
     rules: [
       ...commonConfig.module.rules,
-      {
-        test: /\.(scss|css)$/,
-        use: ['file-loader'],
-      },
     ],
   },
   entry: path.resolve(__dirname, '../server/server.ts'),

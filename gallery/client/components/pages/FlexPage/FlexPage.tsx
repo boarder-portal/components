@@ -1,14 +1,11 @@
-import block from 'bem-cn';
 import { FC, memo } from 'react';
 
 import { Container, Flex, Heading } from '../../../../../src/components';
 
-const b = block('FlexPage');
-
 const FlexPage: FC = () => {
   return (
     <Container>
-      <Flex className={b()} direction="column" between={2}>
+      <Flex direction="column" between={2}>
         <Heading level={1}>Flex</Heading>
 
         <Heading level={3}>Between</Heading>

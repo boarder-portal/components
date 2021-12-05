@@ -1,0 +1,23 @@
+.root {
+  color: white;
+  border: 0;
+  border-radius: 4px;
+  outline: 0;
+  cursor: pointer;
+  padding: 12px 24px;
+
+  &.success {
+    background: #82BF56;
+    border-bottom: 2px solid darken(#82BF56, 10%);
+  }
+
+  &.danger {
+    background: #E74C3C;
+    border-bottom: 2px solid darken(#E74C3C, 10%);
+  }
+
+  &.disabled {
+    cursor: initial;
+    opacity: 0.3;
+  }
+}
