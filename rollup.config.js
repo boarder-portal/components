@@ -2,7 +2,7 @@ import peerDepsExternal from 'rollup-plugin-peer-deps-external';
 import resolve from '@rollup/plugin-node-resolve';
 import commonjs from '@rollup/plugin-commonjs';
 import { babel } from '@rollup/plugin-babel';
-import scss from 'rollup-plugin-scss';
+import postcss from 'rollup-plugin-postcss';
 import { visualizer } from 'rollup-plugin-visualizer';
 import { terser } from 'rollup-plugin-terser';
 
@@ -35,9 +35,11 @@ export default {
       babelHelpers: 'bundled',
       extensions,
     }),
-    scss({
-      output: './dist/index.css',
-      outputStyle: 'compressed',
+    postcss({
+      modules: true,
+      extract: true,
+      plugins: [require('autoprefixer'), require('postcss-nested'), require('postcss-color-function')],
+      minimize: true,
     }),
     visualizer(),
   ],
