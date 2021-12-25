@@ -6,11 +6,12 @@ import cx from './Input.pcss';
 interface IInputProps {
   className?: string;
   value: string;
+  placeholder?: string;
   onInput?(value: string): void;
 }
 
 export const Input: FC<IInputProps> = memo(forwardRef<HTMLInputElement | null, IInputProps>((props, ref) => {
-  const { className, value, onInput } = props;
+  const { className, value, placeholder, onInput } = props;
 
   const handleEvent = useCallback(
     (e) => {
@@ -23,6 +24,7 @@ export const Input: FC<IInputProps> = memo(forwardRef<HTMLInputElement | null, I
     className={classNames(cx.root, className)}
     ref={ref}
     value={value}
+    placeholder={placeholder}
     onInput={handleEvent}
   />;
 }));

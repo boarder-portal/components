@@ -11,6 +11,10 @@ const InputPage: FC = () => {
         <Heading level={1}>Input</Heading>
 
         <Input value={value} onInput={setValue} />
+
+        <Heading level={4}>Placeholder</Heading>
+
+        <Input value={value} placeholder="username" onInput={setValue} />
       </Flex>
     </Container>
   );
