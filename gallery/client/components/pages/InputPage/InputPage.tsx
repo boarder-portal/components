@@ -19,6 +19,10 @@ const InputPage: FC = () => {
         <Heading level={4}>Password</Heading>
 
         <Input value={value} type="password" placeholder="password" onInput={setValue} />
+
+        <Heading level={4}>Disable autocorrect</Heading>
+
+        <Input value={value} disableAutoCorrect onInput={setValue} />
       </Flex>
     </Container>
   );

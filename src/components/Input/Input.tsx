@@ -8,11 +8,12 @@ interface IInputProps {
   value: string;
   type?: 'text' | 'password';
   placeholder?: string;
+  disableAutoCorrect?: boolean;
   onInput?(value: string): void;
 }
 
 export const Input: FC<IInputProps> = memo(forwardRef<HTMLInputElement | null, IInputProps>((props, ref) => {
-  const { className, value, type = 'text', placeholder, onInput } = props;
+  const { className, value, type = 'text', placeholder, disableAutoCorrect, onInput } = props;
 
   const handleEvent = useCallback(
     (e) => {
@@ -27,6 +28,7 @@ export const Input: FC<IInputProps> = memo(forwardRef<HTMLInputElement | null, I
     value={value}
     type={type}
     placeholder={placeholder}
+    autoCorrect={disableAutoCorrect ? 'off' : undefined}
     onInput={handleEvent}
   />;
 }));
