@@ -29,6 +29,7 @@ export const Input: FC<IInputProps> = memo(forwardRef<HTMLInputElement | null, I
     type={type}
     placeholder={placeholder}
     autoCorrect={disableAutoCorrect ? 'off' : undefined}
+    spellCheck={disableAutoCorrect ? 'false' : undefined}
     onInput={handleEvent}
   />;
 }));
