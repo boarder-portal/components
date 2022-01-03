@@ -1,4 +1,4 @@
-import { FC, forwardRef, memo } from 'react';
+import { forwardRef, memo, ReactNode } from 'react';
 import classNames from 'classnames';
 
 import cx from './Button.pcss';
@@ -7,10 +7,11 @@ interface IButtonProps {
   className?: string;
   type?: 'success' | 'danger';
   disabled?: boolean;
+  children?: ReactNode;
   onClick?(): void;
 }
 
-export const Button: FC<IButtonProps> = memo(forwardRef<HTMLButtonElement | null, IButtonProps>((props, ref) => {
+export const Button = memo(forwardRef<HTMLButtonElement | null, IButtonProps>((props, ref) => {
   const { className, disabled, children, type = 'success', onClick } = props;
 
   return (

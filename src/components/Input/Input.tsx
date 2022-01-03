@@ -1,4 +1,4 @@
-import { FC, forwardRef, memo, useCallback } from 'react';
+import { forwardRef, memo, useCallback } from 'react';
 import classNames from 'classnames';
 
 import cx from './Input.pcss';
@@ -12,7 +12,7 @@ interface IInputProps {
   onInput?(value: string): void;
 }
 
-export const Input: FC<IInputProps> = memo(forwardRef<HTMLInputElement | null, IInputProps>((props, ref) => {
+export const Input = memo(forwardRef<HTMLInputElement | null, IInputProps>((props, ref) => {
   const { className, value, type = 'text', placeholder, disableAutoCorrect, onInput } = props;
 
   const handleEvent = useCallback(

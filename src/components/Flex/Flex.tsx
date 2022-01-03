@@ -1,4 +1,4 @@
-import { FC, forwardRef, memo, MouseEventHandler } from 'react';
+import { forwardRef, memo, MouseEventHandler, ReactNode } from 'react';
 import classNames from 'classnames';
 
 import cx from './Flex.pcss';
@@ -9,11 +9,12 @@ interface IFlexProps {
   justifyContent?: 'center' | 'flexStart' | 'flexEnd' | 'spaceBetween';
   alignItems?: 'center' | 'flexStart' | 'flexEnd' | 'stretch';
   between?: 1 | 2 | 3 | 4 | 5;
+  children?: ReactNode;
   onClick?: MouseEventHandler<HTMLDivElement>;
   onContextMenu?: MouseEventHandler<HTMLDivElement>;
 }
 
-export const Flex: FC<IFlexProps> = memo(forwardRef<HTMLDivElement | null, IFlexProps>((props, ref) => {
+export const Flex = memo(forwardRef<HTMLDivElement | null, IFlexProps>((props, ref) => {
   const {
     className,
     children,
