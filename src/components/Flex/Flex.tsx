@@ -1,4 +1,4 @@
-import { forwardRef, memo, MouseEventHandler, ReactNode } from 'react';
+import { forwardRef, MouseEventHandler, ReactNode } from 'react';
 import classNames from 'classnames';
 
 import cx from './Flex.pcss';
@@ -14,7 +14,7 @@ interface IFlexProps {
   onContextMenu?: MouseEventHandler<HTMLDivElement>;
 }
 
-export const Flex = memo(forwardRef<HTMLDivElement | null, IFlexProps>((props, ref) => {
+export const Flex = forwardRef<HTMLDivElement | null, IFlexProps>((props, ref) => {
   const {
     className,
     children,
@@ -43,6 +43,6 @@ export const Flex = memo(forwardRef<HTMLDivElement | null, IFlexProps>((props, r
       {children}
     </div>
   );
-}));
+});
 
 Flex.displayName = 'Flex';

@@ -1,4 +1,4 @@
-import { forwardRef, memo, useCallback } from 'react';
+import { forwardRef, useCallback } from 'react';
 import classNames from 'classnames';
 
 import cx from './Input.pcss';
@@ -12,7 +12,7 @@ interface IInputProps {
   onInput?(value: string): void;
 }
 
-export const Input = memo(forwardRef<HTMLInputElement | null, IInputProps>((props, ref) => {
+export const Input = forwardRef<HTMLInputElement | null, IInputProps>((props, ref) => {
   const { className, value, type = 'text', placeholder, disableAutoCorrect, onInput } = props;
 
   const handleEvent = useCallback(
@@ -33,6 +33,6 @@ export const Input = memo(forwardRef<HTMLInputElement | null, IInputProps>((prop
     spellCheck={disableAutoCorrect ? 'false' : undefined}
     onInput={handleEvent}
   />;
-}));
+});
 
 Input.displayName = 'Input';

@@ -1,4 +1,4 @@
-import { forwardRef, memo, ReactNode } from 'react';
+import { forwardRef, ReactNode } from 'react';
 import classNames from 'classnames';
 
 import cx from './Container.pcss';
@@ -8,10 +8,10 @@ interface IContainerProps {
   children?: ReactNode;
 }
 
-export const Container = memo(forwardRef<HTMLDivElement | null, IContainerProps>((props, ref) => {
+export const Container = forwardRef<HTMLDivElement | null, IContainerProps>((props, ref) => {
   const { className, children } = props;
 
   return <div className={classNames(cx.root, className)} ref={ref}>{children}</div>;
-}));
+});
 
 Container.displayName = 'Container';

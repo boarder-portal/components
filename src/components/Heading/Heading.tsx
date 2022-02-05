@@ -1,4 +1,4 @@
-import { forwardRef, memo, ReactNode } from 'react';
+import { forwardRef, ReactNode } from 'react';
 import classNames from 'classnames';
 
 import cx from './Heading.pcss';
@@ -9,12 +9,12 @@ interface IHeadingProps {
   children?: ReactNode;
 }
 
-export const Heading = memo(forwardRef<HTMLDivElement | null, IHeadingProps>((props, ref) => {
+export const Heading = forwardRef<HTMLDivElement | null, IHeadingProps>((props, ref) => {
   const { className, level, children } = props;
 
   return <div
     className={classNames(cx.root, cx[`level_${level}`], className)}
     ref={ref}>{children}</div>;
-}));
+});
 
 Heading.displayName = 'Heading';
