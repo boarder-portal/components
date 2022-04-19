@@ -1,6 +1,6 @@
 {
   "name": "boarder-components",
-  "version": "1.3.7",
+  "version": "1.3.8",
   "description": "",
   "main": "dist/index.js",
   "module": "dist/index.es.js",
@@ -11,7 +11,8 @@
     "gallery:server:build:watch": "webpack -w -c ./gallery/webpack/server.config.js",
     "gallery:server:start:watch": "supervisor ./gallery/build/server/main.js",
     "css:watch:gallery": "tcm -p gallery/**/*.pcss --watch",
-    "css:watch:src": "tcm -p src/**/*.pcss --watch"
+    "css:watch:src": "tcm -p src/**/*.pcss --watch",
+    "publish": "npm publish"
   },
   "repository": {
     "type": "git",

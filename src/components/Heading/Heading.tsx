@@ -1,4 +1,4 @@
-import { forwardRef, ReactNode } from 'react';
+import React, { ReactNode } from 'react';
 import classNames from 'classnames';
 
 import cx from './Heading.pcss';
@@ -9,7 +9,7 @@ interface IHeadingProps {
   children?: ReactNode;
 }
 
-export const Heading = forwardRef<HTMLDivElement | null, IHeadingProps>((props, ref) => {
+export const Heading = React.forwardRef<HTMLDivElement | null, IHeadingProps>((props, ref) => {
   const { className, level, children } = props;
 
   return <div
